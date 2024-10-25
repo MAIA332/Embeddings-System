@@ -1,5 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+# Embedding System
+Sistema de criação de elementos que podem ser adicionados como embeddings em outras paginas, podendo exportar via iframe ou só o link
 ## Getting Started
 
 First, run the development server:
