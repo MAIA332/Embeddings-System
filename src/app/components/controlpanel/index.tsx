@@ -13,7 +13,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
     return(
         <div className="inset-0 z-50 fixed flex flex-col mt-20 w-1/3 h-screen p-4 transition duration-500 ease-in-out">
-                    <div className="relative bg-gradient-to-r from-green-400 to-green-600 p-6 rounded-lg shadow-lg w-full max-w-4xl">
+                    <div className="relative bg-gradient-to-r from-gray-600 to-gray-800 p-6 rounded-lg shadow-lg w-full max-w-4xl">
                         <Button onClick={()=>{onClose()}} disabled={false} variant="dark" className="absolute top-4 right-4 text-white text-2xl hover:bg-red-600">
                            X
                         </Button>

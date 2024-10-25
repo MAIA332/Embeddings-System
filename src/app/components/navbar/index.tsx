@@ -11,7 +11,7 @@ export default function Navbar(){
             </div>
             <div className="flex items-center space-x-4">
                 <a href="/" className="text-gray-400 hover:text-white">Home</a>
-                <a href="#" className="text-gray-400 hover:text-white">Criar</a>
+                <a href="/create" className="text-gray-400 hover:text-white">Criar</a>
             </div>
             <div className="flex items-center space-x-2">
                 <div className="relative">
