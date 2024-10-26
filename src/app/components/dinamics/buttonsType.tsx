@@ -1,13 +1,15 @@
-const ButtonsType: React.FC<{ data: any[],className:string }> = ({ data,className }) => {
+import Button from "../buttons/main"; 
+
+const ButtonsType: React.FC<{ data: any[]; className: string }> = ({ data, className }) => {
     return (
         <div className={`flex space-x-4 ${className}`}>
             {data.map((item, index) => (
-                <button key={index} className={item.className}>
+                <Button key={index} variant="dark" className={`${item.className}`}>
                     {item.text}
-                </button>
+                </Button>
             ))}
         </div>
     );
 };
 
-export default ButtonsType;
+export default ButtonsType; 

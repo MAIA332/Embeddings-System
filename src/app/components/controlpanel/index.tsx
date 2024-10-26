@@ -3,13 +3,40 @@
 import React from "react"
 import Image from "next/image"
 import Button from "../buttons/main"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast,ToastPosition } from 'react-toastify';
+
 
 interface ModalProps {
+    data: {name:string | null,component:string | null}
     isOpen: boolean;
     onClose: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+const copiarTexto = async (textoParaCopiar:string) => {
+    try {
+      await navigator.clipboard.writeText(textoParaCopiar);
+    } catch (err) {
+      console.error('Falha ao copiar: ', err);
+    }
+  };
+
+const mostrarToast = (text:string,position:ToastPosition) => {
+    
+    toast(text, {
+        position: position,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    })
+};
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, data }) => {
     if (!isOpen) return null;
     return(
         <div className="inset-0 z-50 fixed flex flex-col mt-20 w-1/3 h-screen p-4 transition duration-500 ease-in-out">
@@ -29,7 +56,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                             </div>
                         </div>
                         <div className="flex items-center mt-6">
-                            <Button onClick={()=>{}} disabled={false} variant="dark" className='bg-green-500 text-white p-4 w-52 shadow-lg'>Exportar Link</Button>
+                            <Button onClick={()=>{mostrarToast("📋 Link copiado para área de transferência","top-right");copiarTexto(`http://localhost:3000/export?component=${data.component}&&name=${data.name}`);
+                            }} disabled={false} variant="dark" className='bg-green-500 text-white p-4 w-52 shadow-lg'>Exportar Link</Button>
 
                             <Button onClick={()=>{}} disabled={false} variant="dark" className=' text-white p-4 w-52 shadow-lg ml-4 hover:bg-red-600'>Deletar</Button>
 
@@ -41,6 +69,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                                 <p className="text-white text-lg font-bold">Lukzmm</p>
                             </div>
                         </div>
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                            />
+                            <ToastContainer />
                     </div>
                 </div>
     )

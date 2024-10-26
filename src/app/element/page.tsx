@@ -21,7 +21,7 @@ const DynamicComponentPage: React.FC = () => {
     const [data, setData] = useState<any[]>([]);
     const [component, setComponent] = useState<string | null>(null);
     const [name, setName] = useState<string | null>(null);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a modal
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const DynamicComponentPage: React.FC = () => {
             )}
             <Button onClick={() => setIsModalOpen(!isModalOpen)} disabled={false} variant="light" className='absolute right-0 bottom-0 mb-4 mr-4'>Painel de controle</Button>
         
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
+            <Modal isOpen={isModalOpen} data={{name:name,component:component}} onClose={() => setIsModalOpen(false)}/>
         </div>
     );
 };
