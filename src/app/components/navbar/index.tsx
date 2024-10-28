@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Button from "../buttons/main";
 
 
@@ -10,8 +11,8 @@ export default function Navbar(){
                 <div className="text-white text-xl font-bold">Embbeddings</div>
             </div>
             <div className="flex items-center space-x-4">
-                <a href="/" className="text-gray-400 hover:text-white">Home</a>
-                <a href="/create" className="text-gray-400 hover:text-white">Criar</a>
+                <Link href="/" className="text-gray-400 hover:text-white">Home</Link>
+                <Link href="/create" className="text-gray-400 hover:text-white">Criar</Link>
             </div>
             <div className="flex items-center space-x-2">
                 <div className="relative">
