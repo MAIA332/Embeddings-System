@@ -12,7 +12,7 @@ export default function Home() {
             data.map((item) => {
               return (
                 <Card
-                  key={item.id}
+                  key={item.uniqueName}
                   imageSrc={item.imageSrc}
                   title={item.title}
                   description={item.description}

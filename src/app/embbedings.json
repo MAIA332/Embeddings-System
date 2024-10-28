@@ -1,57 +1,55 @@
 [
-    {
-    "id":1,
-    "imageSrc":"/placeholder.avif",
-    "title":"Buttons Menu",
-    "description":"Menu dinâmico com botões",
-    "redirectText":"Clique aqui",
-    "type":"buttonsType",
+  {
+    "imageSrc": "/placeholder.avif",
+    "title": "Buttons Menu",
+    "description": "Menu dinâmico com botões",
+    "redirectText": "Clique aqui",
+    "type": "buttonsType",
     "element": [
-        {
-            "id":1,
-            "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-            "text":"Telefonia"
-        },
-        {
-            "id":2,
-            "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-            "text":"uyfytftr"
-        },
-        {   
-            "id":3,
-            "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-            "text":"Button752"
-        }
+      {
+        "id": 1,
+        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
+        "text": "Telefonia"
+      },
+      {
+        "id": 2,
+        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
+        "text": "uyfytftr"
+      },
+      {
+        "id": 3,
+        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
+        "text": "Button752"
+      }
     ],
-    "uniqueName":"4f64a11b-2d79-4c2a-9f79-8cb33acfc8d8",
-    "created_by":"Lukzmm",
-    "created_at":"2024-25-10 14:29:00",
-    "logo":"/template_embedding_image"
-    },
-    {
-        "id":2,
-        "imageSrc":"/placeholder.avif",
-        "title":"Buttons Menu",
-        "description":"Menu dinâmico com botões",
-        "redirectText":"Clique aqui",
-        "type":"buttonsType",
-        "element": [
-            {
-                "id":1,
-                "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-                "text":"no"
-            },
-            {
-                "id":2,
-                "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-                "text":"sim"
-            },
-            {   
-                "id":3,
-                "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-                "text":"Button752"
-            }
-        ],
-        "uniqueName":"005ea636-bf29-4503-9441-592c95a29152"
-        }
+    "uniqueName": "4f64a11b-2d79-4c2a-9f79-8cb33acfc8d8",
+    "created_by": "Lukzmm",
+    "created_at": "2024-25-10 14:29:00",
+    "logo": "/template_embedding_image"
+  },
+  {
+    "imageSrc": "/placeholder.avif",
+    "title": "Buttons Menu",
+    "description": "Menu dinâmico com botões",
+    "redirectText": "Clique aqui",
+    "type": "buttonsType",
+    "element": [
+      {
+        "id": 1,
+        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
+        "text": "no"
+      },
+      {
+        "id": 2,
+        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
+        "text": "sim"
+      },
+      {
+        "id": 3,
+        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
+        "text": "Button752"
+      }
+    ],
+    "uniqueName": "005ea636-bf29-4503-9441-592c95a29152"
+  }
 ]

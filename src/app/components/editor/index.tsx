@@ -3,17 +3,13 @@ import ButtonsType from '../dinamics/buttonsType';
 import ButtonsTypeForm from '../dinamics/forms/buttonsTypeForm';
 import Button from '../buttons/main';
 import { v4 as uuidv4 } from 'uuid';
+import { toast,ToastPosition } from 'react-toastify';
+
 
 // interface ButtonsTypeProps  {
 //     data: any[];
 //     className: string;
 // }
-
-interface ButtonData {
-    text: string;
-    className: string;
-    variant:string;
-}
 
 const componentsMap: any = {
     buttonsType:  () => {return (ButtonsType)}, 
@@ -24,13 +20,12 @@ const formsMap:any = {
 }
 
 interface FormData {
-    id: string;
     title: string;
     imageSrc: string;
     description: string;
     redirectText: string;
     type: string;
-    element: [];
+    element: any[];
     uniqueName: string;
     created_by: string;
     created_at: string;
@@ -42,17 +37,16 @@ const EditorPage: React.FC = () => {
     const [elementType, setElementType] = useState<string>('');
     const [SelectedComponent, setSelectedComponent] = useState<any | null>('');
     const [SelectedForm, setSelectedForm] = useState<any | null>('');
-    const [componentRenderData, setcomponentRenderData] = useState<{ text: string; className: string }[]|null>([]);
+    const [componentRenderData, setcomponentRenderData] = useState<any[]>([]);
     // const [componentTitle, setcomponentTitle] = useState<string>('');
     const [formData, setFormData] = useState<FormData>({
-        id:uuidv4(),
         title: '',
         imageSrc: '/placeholder.avif',
         description: '',
         redirectText: '',
         type: 'buttonsType',
-        element: [],
-        uniqueName: '',
+        element:[],
+        uniqueName:uuidv4(),
         created_by: 'Lukzmm',
         created_at: new Date().toISOString(),
         logo: '/template_embedding_image'
@@ -65,8 +59,7 @@ const EditorPage: React.FC = () => {
     // }, [SelectedForm]);
 
     useEffect(() => {
-        console.log('to dentrso do use effect')
-        console.log(componentsMap[elementType])
+     
         setSelectedComponent(componentsMap[elementType] || null);
         setSelectedForm(formsMap[elementType])
         
@@ -74,11 +67,9 @@ const EditorPage: React.FC = () => {
         const componentData = localStorage.getItem("componentRenderData");
         if (componentData) {
 
-            const parsedData: ButtonData[] = JSON.parse(componentData);
+            const parsedData: [] = JSON.parse(componentData);
             setcomponentRenderData(parsedData);
             
-        } else {
-            setcomponentRenderData(null);
         }
         
     }, [elementType]);
@@ -91,13 +82,52 @@ const EditorPage: React.FC = () => {
         }));
     };
 
-    const handleComponentRenderDataChange = (data: ButtonData[]) => {
+    const handleComponentRenderDataChange = (data: []) => {
         setcomponentRenderData(data);
-        console.log(data);
         
         localStorage.setItem("componentRenderData", JSON.stringify(data));
     };
 
+    const mostrarToast = (text:string,position:ToastPosition) => {
+    
+        toast(text, {
+            position: position,
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        })
+    };
+
+    const saveComponent = async ()=>{
+        formData.element =  componentRenderData
+
+        const response = await fetch("http://localhost:3000/api/savetoemb/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+
+        console.log(response);
+
+        setFormData({title: '',
+            imageSrc: '/placeholder.avif',
+            description: '',
+            redirectText: '',
+            type: '',
+            element:[],
+            uniqueName:uuidv4(),
+            created_by: 'Lukzmm',
+            created_at: new Date().toISOString(),
+            logo: '/template_embedding_image'
+        })
+        
+        mostrarToast("Elemento criado com sucesso","top-right")
+
+    }
     
     return (
         <div className="flex h-screen">
@@ -110,12 +140,13 @@ const EditorPage: React.FC = () => {
                                 <label className="block text-sm font-medium mb-1">ID do componente:</label>
                                 <input
                                     type='text'
-                                    name='id'
+                                    name='uniqueName'
+                                    required
                                     disabled={true}
                                     onChange={handleFormChange}
-                                    value={formData.id}
+                                    value={formData.uniqueName}
                                     className='w-full border rounded p-2 bg-black'
-                                    placeholder='Titulo do componente'
+                                    placeholder='Id do componente'
                                 />
                                 <label className="block text-sm font-medium mb-1 mt-5">Titulo do componente:</label>
                                 <input
@@ -129,7 +160,7 @@ const EditorPage: React.FC = () => {
                                 <label className="block text-sm font-medium mb-1 mt-5">Descrição do componente:</label>
                                 <input
                                     type='text'
-                                    name='title'
+                                    name='description'
                                     onChange={handleFormChange}
                                     value={formData.description}
                                     className='w-full border rounded p-2 bg-black'
@@ -167,7 +198,7 @@ const EditorPage: React.FC = () => {
                         </div>
                         <Button
                             variant="dark"
-                            onClick={()=>{}}
+                            onClick={async ()=>{await saveComponent()}}
                             className="w-full bg-blue-500 text-white rounded p-2 mt-5"
                         >
                             Save component
