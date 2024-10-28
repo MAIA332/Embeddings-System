@@ -53,7 +53,7 @@ const ButtonsTypeForm = ({ onChange }: { onChange: (data: { id: string; classNam
             </div>
 
             {buttons.map((button, index) => (
-                <div key={button.id}> {/* Use o id como chave */}
+                <div key={button.id}>
                     <h1 className='mt-10'>Botão {`${index + 1}`}</h1>
                     <label className="block text-sm font-medium mb-1">Nome do botão {`${index + 1}`}:</label>
                     <input 
