@@ -28,8 +28,8 @@ const ButtonsTypeForm = ({ onChange }: { onChange: (data: { id: string; classNam
     const handleColorChange = (index: number, value: string) => {
         const updatedButtons = [...buttons];
         const classNameMap: any = {
-            "dark": "bg-black text-white py-2 px-4 rounded-md",
-            "light": "bg-white text-slate-900 hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
+            "dark": "bg-black py-2 px-4 rounded-md",
+            "light": "bg-white text-black hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
         };
 
         updatedButtons[index].className = classNameMap[value] || '';

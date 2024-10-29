@@ -4,11 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 import Button from '../buttons/main';
 
-type ElementProps = {
+/* type ElementProps = {
   id:number
   text?: string
   className?: string
-}
+} */
 
 type CardProps = {
     imageSrc:string,
@@ -16,12 +16,12 @@ type CardProps = {
     description:string,
     redirectLink:string,
     redirectText:string,
-    element: ElementProps | ElementProps [],
+    element: any [],
     type:string,
     uniqueName:string
 };
 
-const handleCardClick = (component: string, rule:  ElementProps | ElementProps [],location:string,type:string) => {
+const handleCardClick = (component: string, rule:  any [],location:string,type:string) => {
   localStorage.setItem(component, JSON.stringify(rule));
   localStorage.setItem("component",type)
   localStorage.setItem("name",component)

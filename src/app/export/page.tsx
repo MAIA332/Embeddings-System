@@ -1,13 +1,12 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+//import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import React, { ComponentType, useEffect, useState } from 'react';
-import jsonData from "../embbedings.json";
-
+import React, { ComponentType, useEffect, useState, Suspense } from 'react';
+import jsonData from '../embbedings.json';
 
 interface DynamicComponentProps {
-    data: any[]; 
+    data: any[];
     className: string;
 }
 
@@ -16,34 +15,38 @@ const componentsMap: Record<string, ComponentType<DynamicComponentProps>> = {
 };
 
 const DynamicComponentPage: React.FC = () => {
-    const searchParams = useSearchParams();
-    const component = searchParams.get('component');
-    const name = searchParams.get('name')
-    console.log(name);
-    
     const [data, setData] = useState<any[]>([]);
+    const [component, setComponent] = useState<string | null>(null);
+    const [name, setName] = useState<string | null>(null);
 
     useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search);
+        setComponent(searchParams.get('component'));
+        setName(searchParams.get('name'));
+    }, []);
 
-        const storedData = jsonData.filter(item=>item.uniqueName==name)[0].element
-        console.log("stored",storedData);
-        
+    useEffect(() => {
+        const storedData = jsonData.find(item => item.uniqueName === name)?.element;
         if (storedData) {
             setData(storedData);
         }
     }, [name]);
 
-    const ComponentToRender = component && typeof component === 'string' ? componentsMap[component] : null;
+    const ComponentToRender = component ? componentsMap[component] : null;
 
     return (
-        <div className='w-full h-screen bg-white'>
-            {ComponentToRender ? (
-                <ComponentToRender data={data} className={"w-1/2 mx-auto items-center justify-center min-h-screen"}/>
-            ) : (
-                <div>Componente não encontrado</div>
-                
-            )}
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+            <div className="w-full h-screen bg-white">
+                {ComponentToRender ? (
+                    <ComponentToRender
+                        data={data}
+                        className="w-1/2 mx-auto items-center justify-center min-h-screen"
+                    />
+                ) : (
+                    <div>Componente não encontrado</div>
+                )}
+            </div>
+        </Suspense>
     );
 };
 

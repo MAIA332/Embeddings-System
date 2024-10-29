@@ -51,5 +51,33 @@
       }
     ],
     "uniqueName": "005ea636-bf29-4503-9441-592c95a29152"
+  },
+  {
+    "title": "Lucas",
+    "imageSrc": "/placeholder.avif",
+    "description": "adasd",
+    "redirectText": "dasda",
+    "type": "buttonsType",
+    "element": [
+      {
+        "id": "7b22ab10-64d0-490c-8bd1-b65179197bcc",
+        "text": "Lucas",
+        "className": ""
+      },
+      {
+        "id": "c3df3e76-7500-43e1-80ed-f15d9737fead",
+        "text": "Felipe",
+        "className": ""
+      },
+      {
+        "id": "4b6bc82e-e08e-4424-96e3-c0a7302caa22",
+        "text": "Thales",
+        "className": "bg-white text-slate-900 hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
+      }
+    ],
+    "uniqueName": "1d3003a6-8fc5-406a-8458-27a605b6b9a2",
+    "created_by": "Lukzmm",
+    "created_at": "2024-10-28T18:49:54.976Z",
+    "logo": "/template_embedding_image"
   }
 ]
