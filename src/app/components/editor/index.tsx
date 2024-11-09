@@ -30,6 +30,10 @@ interface FormData {
     created_by: string;
     created_at: string;
     logo: string;
+    position: {
+        x: number,
+        y: number
+    }
 }
 
 
@@ -39,6 +43,8 @@ const EditorPage: React.FC = () => {
     const [SelectedForm, setSelectedForm] = useState<any | null>('');
     const [componentRenderData, setcomponentRenderData] = useState<any[]>([]);
     // const [componentTitle, setcomponentTitle] = useState<string>('');
+    const getRandomPosition = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+
     const [formData, setFormData] = useState<FormData>({
         title: '',
         imageSrc: '/placeholder.avif',
@@ -49,7 +55,11 @@ const EditorPage: React.FC = () => {
         uniqueName:uuidv4(),
         created_by: 'Lukzmm',
         created_at: new Date().toISOString(),
-        logo: '/template_embedding_image'
+        logo: '/template_embedding_image',
+        position: {
+            x: getRandomPosition(-12,1200),
+            y: getRandomPosition(100,800)
+        }
     });
 
     // useEffect(() => {
@@ -104,8 +114,9 @@ const EditorPage: React.FC = () => {
 
     const saveComponent = async ()=>{
         formData.element =  componentRenderData
+        const currentUrl = window.location.href.split('element')[0];
 
-        const response = await fetch("http://localhost:3000/api/savetoemb/", {
+        const response = await fetch(`${currentUrl}/api/savetoemb/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
@@ -122,10 +133,15 @@ const EditorPage: React.FC = () => {
             uniqueName:uuidv4(),
             created_by: 'Lukzmm',
             created_at: new Date().toISOString(),
-            logo: '/template_embedding_image'
+            logo: '/template_embedding_image',
+            position: {
+                x: 0,
+                y: 0
+            }
         })
         
         mostrarToast("Elemento criado com sucesso","top-right")
+        window.location.href = "/";
 
     }
     
@@ -174,6 +190,28 @@ const EditorPage: React.FC = () => {
                                     value={formData.redirectText}
                                     className='w-full border rounded p-2 bg-black'
                                     placeholder='Texto do link...'
+                                />
+                                <label className="block text-sm font-medium mb-1 mt-5">Posição X:</label>
+                                <input
+                                    type='text'
+                                    name='positionX'
+                                    onChange={handleFormChange}
+                                    value={formData.position.x}
+                                    className='w-full border rounded p-2 bg-black'
+                                    placeholder='Posição X'
+                                    required
+                                    disabled={true}
+                                />
+                                <label className="block text-sm font-medium mb-1 mt-5">Posição Y:</label>
+                                <input
+                                    type='text'
+                                    name='positionY'
+                                    onChange={handleFormChange}
+                                    value={formData.position.y}
+                                    className='w-full border rounded p-2 bg-black'
+                                    placeholder='Posição Y'
+                                    required
+                                    disabled={true}
                                 />
                                 <label className="block text-sm font-medium mb-1 mt-5">Tipo do componente:</label>
                                 <select

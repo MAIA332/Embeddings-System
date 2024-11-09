@@ -29,7 +29,8 @@ const ButtonsTypeForm = ({ onChange }: { onChange: (data: { id: string; classNam
         const updatedButtons = [...buttons];
         const classNameMap: any = {
             "dark": "bg-black py-2 px-4 rounded-md",
-            "light": "bg-white text-black hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
+            "light": "bg-white text-black hover:bg-slate-300 border border-black py-2 px-4 rounded-md",
+            'modern':"bg-white overflow-hidden text-slate-950 font-thin border border-black transition-all duration-300 bg-transparent hover:bg-pink-500 hover:text-white hover:border-none"
         };
 
         updatedButtons[index].className = classNameMap[value] || '';
@@ -73,6 +74,7 @@ const ButtonsTypeForm = ({ onChange }: { onChange: (data: { id: string; classNam
                         <option key="Selecione um tipo" value="">Selecione um tipo</option>
                         <option key="light" value="light">Claro</option>
                         <option key="dark" value="dark">Escuro</option>
+                        <option key="modern" value="modern">Pink</option>
                     </select>
                 </div>
             ))}

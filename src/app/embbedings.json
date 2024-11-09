@@ -1,83 +1,68 @@
 [
   {
+    "title": "Teste",
     "imageSrc": "/placeholder.avif",
-    "title": "Buttons Menu",
-    "description": "Menu dinâmico com botões",
-    "redirectText": "Clique aqui",
+    "description": "Teste2",
+    "redirectText": "Teste",
     "type": "buttonsType",
     "element": [
       {
-        "id": 1,
-        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-        "text": "Telefonia"
-      },
-      {
-        "id": 2,
-        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-        "text": "uyfytftr"
-      },
-      {
-        "id": 3,
-        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-        "text": "Button752"
+        "id": "e3597066-2862-42c8-b00d-70061cfdasd0876",
+        "text": "Teste",
+        "className": ""
       }
     ],
-    "uniqueName": "4f64a11b-2d79-4c2a-9f79-8cb33acfc8d8",
+    "uniqueName": "e31aabf9-4861-4ffc-b802-336382c75d4458",
     "created_by": "Lukzmm",
-    "created_at": "2024-25-10 14:29:00",
-    "logo": "/template_embedding_image"
+    "created_at": "2024-11-09T13:58:16.861Z",
+    "logo": "/template_embedding_image",
+    "position": {
+      "x": 538,
+      "y": 507
+    }
   },
   {
+    "title": "Teste",
     "imageSrc": "/placeholder.avif",
-    "title": "Buttons Menu",
-    "description": "Menu dinâmico com botões",
-    "redirectText": "Clique aqui",
+    "description": "Teste",
+    "redirectText": "Teste",
     "type": "buttonsType",
     "element": [
       {
-        "id": 1,
-        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-        "text": "no"
-      },
-      {
-        "id": 2,
-        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-        "text": "sim"
-      },
-      {
-        "id": 3,
-        "className": "bg-blue-600 text-white py-2 px-4 rounded-md",
-        "text": "Button752"
+        "id": "83794ccb-9149-4177-9edc-254cbf637bc2",
+        "text": "Teste",
+        "className": "bg-white text-black hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
       }
     ],
-    "uniqueName": "005ea636-bf29-4503-9441-592c95a29152"
+    "uniqueName": "4c061b10-4b5b-45cd-a2e4-9e45ed3d34bf",
+    "created_by": "Lukzmm",
+    "created_at": "2024-11-09T14:56:15.659Z",
+    "logo": "/template_embedding_image",
+    "position": {
+      "x": 556,
+      "y": 218
+    }
   },
   {
     "title": "Lucas",
     "imageSrc": "/placeholder.avif",
-    "description": "adasd",
-    "redirectText": "dasda",
+    "description": "Felipe",
+    "redirectText": "dadas",
     "type": "buttonsType",
     "element": [
       {
-        "id": "7b22ab10-64d0-490c-8bd1-b65179197bcc",
-        "text": "Lucas",
-        "className": ""
-      },
-      {
-        "id": "c3df3e76-7500-43e1-80ed-f15d9737fead",
-        "text": "Felipe",
-        "className": ""
-      },
-      {
-        "id": "4b6bc82e-e08e-4424-96e3-c0a7302caa22",
-        "text": "Thales",
-        "className": "bg-white text-slate-900 hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
+        "id": "613a59db-d310-44ef-b208-ba366e4626dd",
+        "text": "sad",
+        "className": "bg-white text-black hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
       }
     ],
-    "uniqueName": "1d3003a6-8fc5-406a-8458-27a605b6b9a2",
+    "uniqueName": "adde9e1b-0278-43a3-9b43-8167a05cb489",
     "created_by": "Lukzmm",
-    "created_at": "2024-10-28T18:49:54.976Z",
-    "logo": "/template_embedding_image"
+    "created_at": "2024-11-09T15:12:12.733Z",
+    "logo": "/template_embedding_image",
+    "position": {
+      "x": 97,
+      "y": 547
+    }
   }
 ]
