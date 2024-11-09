@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Lucas",
+    "imageSrc": "/placeholder.avif",
+    "description": "Felipe",
+    "redirectText": "dadas",
+    "type": "buttonsType",
+    "element": [
+      {
+        "id": "613a59db-d310-44ef-b208-ba366e4626dd",
+        "text": "sad",
+        "className": "bg-white text-black hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
+      }
+    ],
+    "uniqueName": "adde9e1b-0278-43a3-9b43-8167a05cb489",
+    "created_by": "Lukzmm",
+    "created_at": "2024-11-09T15:12:12.733Z",
+    "logo": "/template_embedding_image",
+    "position": {
+      "x": 97,
+      "y": 547
+    }
+  },
+  {
+    "title": "SIM",
+    "imageSrc": "/placeholder.avif",
+    "description": "SIM",
+    "redirectText": "SIM",
+    "type": "buttonsType",
+    "element": [
+      {
+        "id": "56311566-3026-4e45-b7e2-452126706509",
+        "text": "SIM",
+        "className": "bg-white text-black hover:bg-slate-300 border border-black py-2 px-4 rounded-md"
+      }
+    ],
+    "uniqueName": "4027b4c5-0cb9-4d2d-9416-a4ba18c5a3de",
+    "created_by": "Lukzmm",
+    "created_at": "2024-11-09T16:00:56.123Z",
+    "logo": "/template_embedding_image",
+    "position": {
+      "x": 108,
+      "y": 228
+    }
+  }
+]

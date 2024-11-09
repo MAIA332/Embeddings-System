@@ -5,12 +5,6 @@ import Button from '../buttons/main';
 import { v4 as uuidv4 } from 'uuid';
 import { toast,ToastPosition } from 'react-toastify';
 
-
-// interface ButtonsTypeProps  {
-//     data: any[];
-//     className: string;
-// }
-
 const componentsMap: any = {
     buttonsType:  () => {return (ButtonsType)}, 
 };
@@ -62,12 +56,6 @@ const EditorPage: React.FC = () => {
         }
     });
 
-    // useEffect(() => {
-    //     if (!SelectedForm) {
-    //         localStorage.removeItem('componentRenderData');
-    //     }
-    // }, [SelectedForm]);
-
     useEffect(() => {
      
         setSelectedComponent(componentsMap[elementType] || null);
@@ -114,7 +102,7 @@ const EditorPage: React.FC = () => {
 
     const saveComponent = async ()=>{
         formData.element =  componentRenderData
-        const currentUrl = window.location.href.split('element')[0];
+        const currentUrl = window.location.href.split('create')[0];
 
         const response = await fetch(`${currentUrl}/api/savetoemb/`, {
             method: "POST",
@@ -141,7 +129,7 @@ const EditorPage: React.FC = () => {
         })
         
         mostrarToast("Elemento criado com sucesso","top-right")
-        window.location.href = "/";
+        /* window.location.href = "/"; */
 
     }
     

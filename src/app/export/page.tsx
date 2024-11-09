@@ -3,12 +3,17 @@
 //import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import React, { ComponentType, useEffect, useState, Suspense } from 'react';
-import jsonData from '../embbedings.json';
 
 interface DynamicComponentProps {
     data: any[];
     className: string;
 }
+
+const fetchJsonData = async () => {
+    const res = await fetch('/embbedings.json');
+    const data = await res.json();
+    return data;
+};
 
 const componentsMap: Record<string, ComponentType<DynamicComponentProps>> = {
     buttonsType: dynamic(() => import('../components/dinamics/buttonsType')),
@@ -26,11 +31,18 @@ const DynamicComponentPage: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        const storedData = jsonData.find(item => item.uniqueName === name)?.element;
-        if (storedData) {
-            setData(storedData);
+        const loadData = async () => {
+            const jsonData = await fetchJsonData();
+            const storedData = jsonData.find((item: any) => item.uniqueName === name)?.element;
+            if (storedData) {
+                setData(storedData);
+            }
+        };
+        if (name) {
+            loadData();
         }
     }, [name]);
+
 
     const ComponentToRender = component ? componentsMap[component] : null;
 

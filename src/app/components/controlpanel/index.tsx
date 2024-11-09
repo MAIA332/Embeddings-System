@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Button from '../buttons/main';
 import { ToastContainer, toast, ToastPosition } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import embbedings from '../../embbedings.json';
 
 interface ModalProps {
   data: { name: string | null; component: string | null };
@@ -43,13 +42,25 @@ const mostrarToast = (text: string, position: ToastPosition) => {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, data }) => {
   const [embbedingsData, setEmbbedingsData] = useState<EmbeddingItem[] | null>(null);
   const [name, setName] = useState(data.name);
+  const [embbedings, setEmbbedings] = useState<EmbeddingItem[]>([]);
+
+
+  const fetchData = async () => {
+    const res = await fetch('/embbedings.json');
+    const data = await res.json();
+    setEmbbedings(data);
+};
+
+  useEffect(() => {
+    fetchData();
+  }, []); 
 
   useEffect(() => {
     const storedName = localStorage.getItem('name');
     setName(storedName);
     const filteredData = embbedings.filter((item) => item.uniqueName === storedName);
     setEmbbedingsData(filteredData);
-  }, [data.name]);
+  }, [data.name,embbedings]);
 
   const deleteElement = async () => {
     if (name) {

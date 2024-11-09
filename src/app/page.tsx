@@ -26,18 +26,10 @@ export default function Home() {
   const [data, setData] = useState<CardData[]>([]); 
   
   const fetchData = async () => {
-    try {
-      const response = await fetch('/api/getdata');
-      if (response.ok) {
-        const result = await response.json();
-        setData(result); 
-      } else {
-        console.error('Failed to fetch data');
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+    const res = await fetch('/embbedings.json');
+    const data = await res.json();
+    setData(data);
+};
 
   useEffect(() => {
     fetchData();

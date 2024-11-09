@@ -1,8 +1,9 @@
-import path from 'path';
 import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
+import path from 'path';
 
-const dataFilePath = path.join(process.cwd(), 'src/app', 'embbedings.json');
+
+const dataFilePath = path.join(process.cwd(), 'public', 'embbedings.json');
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
